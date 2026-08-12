@@ -3,7 +3,7 @@ import {
   Phone, MessageCircle, Menu, X, CheckCircle2,
   MapPin, Mail, ChevronDown, ChevronUp, Star, Shield,
   Zap, Droplets, Sparkles, Home, Building2, LayoutDashboard,
-  Bug, TreePine, Waves, ArrowRight, Loader2
+  Bug, TreePine, Waves, ArrowRight, Loader2, Clock, Quote
 } from 'lucide-react';
 
 /* ------------------------------------------------------------------
@@ -80,6 +80,30 @@ const SERVICE_OPTIONS = [
   'Entretien Piscine',
   'Jardinage',
   'Autre'
+];
+
+const SEO_TOPICS = [
+  {
+    title: 'Nettoyage canapé Marrakech',
+    desc: "Canapés tissu, salons marocains, matelas, fauteuils, tapis et détachage à domicile avec séchage rapide."
+  },
+  {
+    title: 'Ménage à domicile Marrakech',
+    desc: "Nettoyage maison, appartement, riad et villa : cuisine, sanitaires, sols, vitres et remise en état."
+  },
+  {
+    title: 'Nettoyage fin de chantier',
+    desc: "Après travaux, rénovation ou construction : poussière fine, gravats, traces de peinture, vitres et sols."
+  },
+  {
+    title: 'Nettoyage bureaux et locaux',
+    desc: "Bureaux, commerces, cabinets, restaurants, hôtels et contrats d'entretien régulier à Marrakech."
+  }
+];
+
+const AREAS = [
+  'Guéliz', "l'Hivernage", 'Palmeraie', 'Targa', 'Agdal', 'Médina', 'Massira',
+  "M'Hamid", 'Sidi Ghanem', 'Route de Casablanca', "Route de l'Ourika", 'Amelkis'
 ];
 
 /* ------------------------------------------------------------------
@@ -166,7 +190,8 @@ const BTN_VARIANTS = {
   primary: 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl',
   whatsapp: 'bg-green-600 text-white hover:bg-green-700 shadow-lg hover:shadow-xl focus-visible:ring-green-600',
   outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
-  white: 'bg-white text-blue-700 hover:bg-gray-50 shadow-lg'
+  white: 'bg-white text-blue-700 hover:bg-gray-50 shadow-lg',
+  whiteOutline: 'bg-white/10 text-white border-2 border-white/40 hover:bg-white/20 backdrop-blur-sm'
 };
 
 /**
@@ -351,13 +376,12 @@ const NAV = [
   { href: '#contact', label: 'Contact' }
 ];
 
-const SECTION_ANCHOR = 'scroll-mt-24 lg:scroll-mt-28';
+const SECTION_ANCHOR = 'scroll-mt-32 lg:scroll-mt-36';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
-  const [testimonialIdx, setTestimonialIdx] = useState(0);
 
   useStructuredData();
 
@@ -385,8 +409,26 @@ export default function App() {
         Aller au contenu
       </a>
 
+      {/* --- BARRE D'INFOS --- */}
+      <div className="fixed w-full top-0 z-50 bg-blue-900 text-blue-100 text-xs md:text-sm">
+        <div className="container mx-auto px-4 max-w-7xl flex justify-center md:justify-between items-center gap-x-6 gap-y-1 py-2 flex-wrap">
+          <span className="hidden sm:inline-flex items-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
+            {CONFIG.city}, Maroc
+          </span>
+          <a href={`tel:${CONFIG.phoneRaw}`} className="inline-flex items-center gap-1.5 hover:text-white">
+            <Phone className="w-3.5 h-3.5" aria-hidden="true" />
+            {CONFIG.phoneDisplay}
+          </a>
+          <span className="hidden sm:inline-flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5" aria-hidden="true" />
+            {CONFIG.hours}
+          </span>
+        </div>
+      </div>
+
       {/* --- HEADER --- */}
-      <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
+      <header className={`fixed w-full top-9 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
         <div className="container mx-auto px-4 md:px-8 max-w-7xl flex justify-between items-center">
           <a href="#accueil" className="flex items-center gap-2 text-2xl font-bold text-blue-900">
             <Sparkles className="w-8 h-8 text-blue-600" aria-hidden="true" />
@@ -447,20 +489,31 @@ export default function App() {
 
       <main>
         {/* --- HERO --- */}
-        <section id="accueil" className={`pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-br from-blue-50 to-white overflow-hidden ${SECTION_ANCHOR}`}>
-          <div className="container mx-auto px-4 md:px-8 max-w-7xl flex flex-col lg:flex-row items-center gap-12">
+        <section id="accueil" className={`relative pt-40 lg:pt-48 pb-20 lg:pb-28 overflow-hidden ${SECTION_ANCHOR}`}>
+          <img
+            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+            alt={`Équipe de nettoyage professionnelle en intervention dans une villa à ${CONFIG.city}`}
+            fetchPriority="high" decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/75 to-blue-950/50" aria-hidden="true" />
 
-            <div className="lg:w-1/2 flex flex-col items-start z-10">
-              <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 text-blue-800 font-medium text-sm mb-6">
+          <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm mb-6 backdrop-blur-sm">
                 <MapPin className="w-4 h-4" aria-hidden="true" />
                 Disponible à {CONFIG.city} &amp; environs
               </p>
 
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-blue-950 leading-tight mb-6">
-                Équipe de nettoyage <span className="text-blue-600">professionnelle</span> à {CONFIG.city}
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-4">
+                Équipe de nettoyage <span className="text-blue-300">professionnelle</span> à {CONFIG.city}
               </h1>
+              <p className="text-xl lg:text-2xl text-blue-100 font-medium mb-6">
+                Sérieuse, dynamique et à votre écoute
+              </p>
 
-              <p className="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+              <p className="text-lg text-blue-50/90 mb-8 leading-relaxed max-w-xl">
                 Des espaces propres, sains et impeccables grâce à une équipe sérieuse et dynamique,
                 réactive et équipée pour tous vos besoins résidentiels et commerciaux.
               </p>
@@ -469,39 +522,29 @@ export default function App() {
                 <Button as="a" href="#contact" variant="primary" className="w-full sm:w-auto text-lg py-4">
                   Demander un devis gratuit
                 </Button>
-                <Button as="a" href={WHATSAPP_LINK} target="_blank" rel="noreferrer" variant="whatsapp" className="w-full sm:w-auto text-lg py-4">
-                  <MessageCircle className="w-6 h-6 mr-2" aria-hidden="true" />
-                  WhatsApp
+                <Button as="a" href="#services" variant="whiteOutline" className="w-full sm:w-auto text-lg py-4">
+                  Nos services
                 </Button>
               </div>
 
-              <ul className="grid grid-cols-2 gap-4 text-sm font-medium text-gray-700">
+              <ul className="grid grid-cols-2 gap-4 text-sm font-medium text-white">
                 {['Intervention rapide', 'Équipe qualifiée', 'Matériel professionnel', 'Satisfaction 100%'].map((t) => (
                   <li key={t} className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
+                    <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-white shrink-0">
                       <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
                     </span>
                     {t}
                   </li>
                 ))}
               </ul>
-            </div>
 
-            <div className="lg:w-1/2 relative w-full">
-              <div className="absolute inset-0 bg-blue-600 rounded-[2rem] translate-x-4 translate-y-4 opacity-10" aria-hidden="true" />
-              <img
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt={`Agent de nettoyage professionnel en intervention dans une villa à ${CONFIG.city}`}
-                width="1000" height="500" fetchPriority="high" decoding="async"
-                className="relative z-10 rounded-[2rem] shadow-2xl object-cover h-[500px] w-full"
-              />
-              <div className="absolute bottom-8 -left-8 z-20 bg-white p-4 rounded-xl shadow-xl items-center gap-4 hidden md:flex">
-                <span className="bg-blue-100 p-3 rounded-full text-blue-600">
-                  <Star className="w-6 h-6 fill-current" aria-hidden="true" />
+              <div className="inline-flex items-center gap-3 mt-8 bg-white/10 border border-white/20 backdrop-blur-sm px-4 py-3 rounded-xl">
+                <span className="bg-white/15 p-2 rounded-full text-yellow-300">
+                  <Star className="w-5 h-5 fill-current" aria-hidden="true" />
                 </span>
-                <span>
-                  <span className="block font-bold text-gray-900 text-lg">{CONFIG.ratingValue}/5</span>
-                  <span className="block text-sm text-gray-500">Basé sur +{CONFIG.reviewCount} avis</span>
+                <span className="text-white">
+                  <span className="font-bold">{CONFIG.ratingValue}/5</span>
+                  <span className="text-blue-100"> · Basé sur +{CONFIG.reviewCount} avis</span>
                 </span>
               </div>
             </div>
@@ -689,20 +732,18 @@ export default function App() {
         <section className="py-20" aria-label="Déroulement de la prestation">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Comment ça marche ?</h2>
-              <p className="text-lg text-gray-600">Un processus simple, rapide et transparent.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Notre méthode de travail</h2>
+              <p className="text-lg text-gray-600">Un processus simple et efficace, en 3 étapes, pour un résultat impeccable à chaque intervention.</p>
             </div>
 
-            <ol className="flex flex-col md:flex-row justify-between items-start md:items-start relative max-w-5xl mx-auto gap-8 md:gap-0">
+            <ol className="flex flex-col md:flex-row justify-between items-start md:items-start relative max-w-4xl mx-auto gap-8 md:gap-0">
               <div className="hidden md:block absolute top-8 left-0 w-full h-1 bg-blue-100 z-0" aria-hidden="true" />
               {[
-                { num: 1, title: 'Contactez-nous', desc: 'Par téléphone, WhatsApp ou via le formulaire.' },
-                { num: 2, title: 'Décrivez le besoin', desc: 'Type de local, surface et services souhaités.' },
-                { num: 3, title: 'Recevez le devis', desc: 'Un tarif clair, sans frais cachés, en moins de 2 h.' },
-                { num: 4, title: 'Planifiez', desc: "Choisissez la date et l'heure de l'intervention." },
-                { num: 5, title: 'Profitez', desc: 'Retrouvez un espace impeccable et sain.' }
+                { num: 1, title: 'Demandez un devis', desc: 'Choisissez votre service et demandez un devis gratuit. Réponse sous 2 h avec une estimation détaillée.' },
+                { num: 2, title: 'Intervention professionnelle', desc: 'Une équipe sérieuse et dynamique intervient avec des produits adaptés et du matériel professionnel.' },
+                { num: 3, title: 'Résultats impeccables', desc: 'Un résultat garanti ou une ré-intervention gratuite. Votre satisfaction est notre engagement.' }
               ].map((step) => (
-                <li key={step.num} className="relative z-10 flex flex-row md:flex-col items-center gap-4 md:text-center w-full md:w-1/5 md:px-2">
+                <li key={step.num} className="relative z-10 flex flex-row md:flex-col items-center gap-4 md:text-center w-full md:w-1/3 md:px-4">
                   <span className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-600 text-white font-bold text-xl flex items-center justify-center border-4 border-white shadow-md shrink-0">
                     {step.num}
                   </span>
@@ -752,25 +793,72 @@ export default function App() {
         </section>
 
         {/* --- SEO LOCAL --- */}
-        <section className="py-16 bg-white border-y border-gray-100" aria-label="Zone d'intervention">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
-            <MapPin className="w-12 h-12 text-blue-200 mx-auto mb-4" aria-hidden="true" />
+        <section className="py-20 bg-white border-y border-gray-100" aria-label="Zone d'intervention">
+          <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              Votre partenaire nettoyage de confiance à {CONFIG.city}
+              Nettoyage à {CONFIG.city} : les demandes les plus fréquentes
             </h2>
-            <div className="text-gray-600 leading-relaxed space-y-4">
+            <div className="text-gray-600 leading-relaxed space-y-4 mb-8">
               <p>
-                En tant qu'<strong>équipe de nettoyage sérieuse et dynamique à Marrakech</strong>, nous
-                intervenons dans tous les quartiers de la ville ocre et ses alentours.
-                Particulier souhaitant un grand ménage
-                dans votre villa à la <strong>Palmeraie</strong> ou sur la <strong>Route de l'Ourika</strong>,
-                ou professionnel cherchant un entretien régulier de bureaux à <strong>Guéliz</strong> ou
-                <strong> Sidi Ghanem</strong> : nous avons la solution.
+                Une <strong>équipe de nettoyage à {CONFIG.city}</strong> doit adapter sa méthode au lieu,
+                aux matériaux et au niveau de salissure. {CONFIG.brand} prend en charge le nettoyage de
+                canapé à domicile, le ménage des maisons et villas, la remise en état après travaux ainsi
+                que l'entretien des bureaux et commerces. Chaque intervention commence par l'identification
+                des surfaces à traiter afin d'éviter une méthode trop humide, trop abrasive ou inadaptée.
               </p>
-              <p className="text-sm">
-                Nos équipes couvrent la Médina, l'Hivernage, Targa, Daoudiate, Samlalia, Agdal, Chrifia,
-                Route de Casablanca et Route de Tahanaout. Experts du <em>nettoyage fin de chantier</em>,
-                du <em>nettoyage de canapés</em> et de l'<em>entretien de jardins</em>.
+            </div>
+
+            <div className="border-l-4 border-blue-600 bg-blue-50 rounded-r-xl p-5 mb-10">
+              <p className="text-gray-700 leading-relaxed">
+                <strong>En bref :</strong> pour choisir un service de nettoyage à {CONFIG.city}, précisez
+                le type de lieu, la surface, les matières, les taches et le délai disponible. Un canapé
+                demande un diagnostic du textile et du séchage ; une fin de chantier exige le retrait
+                progressif des poussières et résidus ; un nettoyage à domicile s'organise du haut vers le
+                bas pour ne pas resalir les zones terminées.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              {SEO_TOPICS.map((topic) => (
+                <div key={topic.title} className="bg-gray-50 border border-gray-100 rounded-xl p-6">
+                  <h3 className="font-bold text-gray-900 mb-2">{topic.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{topic.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-6 mb-10">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Pour les textiles d'ameublement</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Indiquez le revêtement, l'origine des taches, les produits déjà utilisés et les
+                  possibilités d'aération. L'équipe peut ainsi choisir entre faible humidité, détachage
+                  ciblé ou injection-extraction contrôlée.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Pour une maison ou un appartement</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Listez les pièces prioritaires, les surfaces fragiles, la présence d'enfants ou d'animaux
+                  et le niveau d'encombrement. Cela permet de distinguer l'entretien courant du nettoyage
+                  en profondeur à domicile.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Pour un chantier ou un local professionnel</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Précisez la surface, les travaux réalisés, les résidus présents et la date de livraison.
+                  Les vitres, sols, sanitaires et poussières fines sont alors traités dans un ordre cohérent.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2">Zones d'intervention à {CONFIG.city}</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Notre équipe intervient à {AREAS.join(', ')} et dans les environs de {CONFIG.city}. Cette
+                couverture locale permet une intervention rapide pour les particuliers, villas, riads,
+                bureaux, commerces et chantiers.
               </p>
             </div>
           </div>
@@ -781,37 +869,28 @@ export default function App() {
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ce que disent nos clients</h2>
-              <p className="flex justify-center items-center gap-1 text-yellow-400 mb-2" aria-label={`Note moyenne ${CONFIG.ratingValue} sur 5`}>
-                {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="w-6 h-6 fill-current" aria-hidden="true" />)}
-              </p>
               <p className="text-lg text-gray-600">La satisfaction de nos clients est notre meilleure publicité.</p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <blockquote className="bg-white rounded-2xl p-8 md:p-12 shadow-lg text-center min-h-[250px] flex flex-col justify-center m-0" aria-live="polite">
-                <p className="text-xl md:text-2xl text-gray-700 italic mb-8 font-medium">
-                  « {TESTIMONIALS[testimonialIdx].text} »
-                </p>
-                <footer>
-                  <span className="block font-bold text-gray-900 text-lg">{TESTIMONIALS[testimonialIdx].name}</span>
-                  <span className="block text-blue-600">{TESTIMONIALS[testimonialIdx].role}</span>
-                </footer>
-              </blockquote>
-
-              <div className="flex justify-center gap-3 mt-8">
-                {TESTIMONIALS.map((t, idx) => (
-                  <button
-                    key={t.name}
-                    type="button"
-                    onClick={() => setTestimonialIdx(idx)}
-                    aria-current={idx === testimonialIdx}
-                    className={`h-3 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600 ${
-                      idx === testimonialIdx ? 'bg-blue-600 w-8' : 'bg-blue-200 hover:bg-blue-400 w-3'
-                    }`}
-                    aria-label={`Voir le témoignage de ${t.name}`}
-                  />
-                ))}
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {TESTIMONIALS.map((t) => (
+                <blockquote key={t.name} className="relative bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col m-0">
+                  <Quote className="w-8 h-8 text-blue-100 mb-2" aria-hidden="true" />
+                  <p className="flex items-center gap-0.5 text-yellow-400 mb-4" aria-label="Note 5 sur 5">
+                    {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="w-4 h-4 fill-current" aria-hidden="true" />)}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-6 flex-1">{t.text}</p>
+                  <footer className="flex items-center gap-3">
+                    <span className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center shrink-0">
+                      {t.name.charAt(0)}
+                    </span>
+                    <span>
+                      <span className="block font-bold text-gray-900">{t.name}</span>
+                      <span className="block text-sm text-blue-600">{t.role}</span>
+                    </span>
+                  </footer>
+                </blockquote>
+              ))}
             </div>
           </div>
         </section>
@@ -952,26 +1031,13 @@ export default function App() {
               </p>
             </div>
 
-            <div>
-              <h2 className="text-lg font-bold text-white mb-6">Navigation</h2>
-              <ul className="space-y-3">
-                {NAV.map((item) => (
-                  <li key={item.href}>
-                    <a href={item.href} className="hover:text-blue-400 transition-colors">{item.label}</a>
-                  </li>
+            <div className="md:col-span-2">
+              <h2 className="text-lg font-bold text-white mb-6">Nos services</h2>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                {SERVICES.map((s) => (
+                  <a key={s.id} href="#services" className="hover:text-blue-400 transition-colors">{s.title}</a>
                 ))}
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-bold text-white mb-6">Services populaires</h2>
-              <ul className="space-y-3">
-                {SERVICES.slice(0, 5).map((s) => (
-                  <li key={s.id}>
-                    <a href="#services" className="hover:text-blue-400 transition-colors">{s.title}</a>
-                  </li>
-                ))}
-              </ul>
+              </div>
             </div>
 
             <div>
@@ -999,7 +1065,10 @@ export default function App() {
 
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
             <p>© {new Date().getFullYear()} {CONFIG.brand}. Tous droits réservés.</p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
+              {NAV.map((item) => (
+                <a key={item.href} href={item.href} className="hover:text-white">{item.label}</a>
+              ))}
               <a href="/mentions-legales" className="hover:text-white">Mentions légales</a>
               <a href="/confidentialite" className="hover:text-white">Politique de confidentialité</a>
             </div>
