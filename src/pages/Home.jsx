@@ -22,7 +22,7 @@ function useStructuredData() {
         '@type': 'LocalBusiness',
         '@id': `${CONFIG.siteUrl}/#business`,
         name: CONFIG.brand,
-        description: `Équipe de nettoyage professionnelle, sérieuse et dynamique à ${CONFIG.city} : résidentiel, commercial, fin de chantier, vitres, canapés, désinfection.`,
+        description: `Équipe de nettoyage professionnelle, sérieuse et dynamique à ${CONFIG.city} : résidentiel, commercial, vitres, canapés & tapis, traitement des sols, piscine.`,
         url: CONFIG.siteUrl,
         telephone: CONFIG.phoneRaw,
         email: CONFIG.email,

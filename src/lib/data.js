@@ -1,6 +1,6 @@
 import {
-  Home, Building2, LayoutDashboard, Sparkles, CheckCircle2,
-  Droplets, Bug, Waves, TreePine
+  Home, Building2, LayoutDashboard, CheckCircle2,
+  Droplets, Waves
 } from 'lucide-react';
 
 import kitchenImg from '../assets/photos/kitchen.jpg';
@@ -16,12 +16,9 @@ export const SERVICES = [
   { id: 1, icon: Home, title: 'Nettoyage Résidentiel', desc: 'Ménage complet pour maisons, appartements et villas de prestige.', img: kitchenImg },
   { id: 2, icon: Building2, title: 'Nettoyage Commercial', desc: 'Entretien de bureaux, agences, commerces et espaces professionnels.', img: officeImg },
   { id: 3, icon: LayoutDashboard, title: 'Nettoyage de Vitres', desc: 'Lavage sans traces pour vitres, baies vitrées et vérandas.', img: windowImg },
-  { id: 4, icon: Sparkles, title: 'Fin de Chantier', desc: 'Élimination des poussières, gravats et résidus après travaux.', img: 'https://images.unsplash.com/photo-1504307651254-35680f356f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
   { id: 5, icon: CheckCircle2, title: 'Canapés & Tapis', desc: 'Shampouinage et nettoyage en profondeur des textiles et cuirs.', img: sofaImg },
   { id: 6, icon: Droplets, title: 'Traitement des Sols', desc: 'Décapage, lustrage et cristallisation des marbres et carrelages.', img: bathroomImg },
-  { id: 7, icon: Bug, title: 'Désinfection & 3D', desc: 'Désinfection, dératisation et désinsectisation (anti-nuisibles).', img: 'https://images.unsplash.com/photo-1584486520270-19eca1efcce5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-  { id: 8, icon: Waves, title: 'Entretien Piscine', desc: "Nettoyage, traitement de l'eau et maintenance de bassins.", img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-  { id: 9, icon: TreePine, title: 'Jardinage', desc: 'Tonte, taille et entretien des espaces verts et jardins de villas.', img: 'https://images.unsplash.com/photo-1558904541-efa843a96f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }
+  { id: 8, icon: Waves, title: 'Entretien Piscine', desc: "Nettoyage, traitement de l'eau et maintenance de bassins.", img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' }
 ];
 
 export const FAQS = [
