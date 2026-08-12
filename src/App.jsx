@@ -93,7 +93,7 @@ function useStructuredData() {
         '@type': 'LocalBusiness',
         '@id': `${CONFIG.siteUrl}/#business`,
         name: CONFIG.brand,
-        description: `Entreprise de nettoyage professionnelle à ${CONFIG.city}, portée par une équipe sérieuse et dynamique : résidentiel, commercial, fin de chantier, vitres, canapés, désinfection.`,
+        description: `Équipe de nettoyage professionnelle, sérieuse et dynamique à ${CONFIG.city} : résidentiel, commercial, fin de chantier, vitres, canapés, désinfection.`,
         url: CONFIG.siteUrl,
         telephone: CONFIG.phoneRaw,
         email: CONFIG.email,
@@ -457,7 +457,7 @@ export default function App() {
               </p>
 
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-blue-950 leading-tight mb-6">
-                Entreprise de nettoyage <span className="text-blue-600">professionnelle</span> à {CONFIG.city}
+                Équipe de nettoyage <span className="text-blue-600">professionnelle</span> à {CONFIG.city}
               </h1>
 
               <p className="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
@@ -532,7 +532,7 @@ export default function App() {
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Pourquoi choisir notre entreprise de nettoyage ?
+                Pourquoi choisir notre équipe de nettoyage ?
               </h2>
               <p className="text-lg text-gray-600">
                 Des prestations fiables, rapides et adaptées aux besoins des particuliers
@@ -760,8 +760,8 @@ export default function App() {
             </h2>
             <div className="text-gray-600 leading-relaxed space-y-4">
               <p>
-                En tant que <strong>société de nettoyage à Marrakech</strong> portée par une équipe sérieuse
-                et dynamique, nous intervenons dans tous les quartiers de la ville ocre et ses alentours.
+                En tant qu'<strong>équipe de nettoyage sérieuse et dynamique à Marrakech</strong>, nous
+                intervenons dans tous les quartiers de la ville ocre et ses alentours.
                 Particulier souhaitant un grand ménage
                 dans votre villa à la <strong>Palmeraie</strong> ou sur la <strong>Route de l'Ourika</strong>,
                 ou professionnel cherchant un entretien régulier de bureaux à <strong>Guéliz</strong> ou
@@ -947,8 +947,8 @@ export default function App() {
                 <span>Clean<span className="text-blue-500">Keh</span></span>
               </p>
               <p className="text-gray-400">
-                Entreprise de nettoyage professionnelle à {CONFIG.city}, portée par une équipe
-                sérieuse et dynamique, pour particuliers et professionnels. Qualité, rapidité et confiance.
+                Équipe de nettoyage professionnelle, sérieuse et dynamique à {CONFIG.city},
+                pour particuliers et professionnels. Qualité, rapidité et confiance.
               </p>
             </div>
 
