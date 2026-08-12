@@ -28,13 +28,6 @@ export default function Layout() {
   return (
     <div className="font-sans text-gray-800 bg-white selection:bg-blue-100 selection:text-blue-900">
 
-      <a
-        href="#contenu"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-blue-700 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
-      >
-        Aller au contenu
-      </a>
-
       {/* --- BARRE D'INFOS --- */}
       <div className="fixed w-full top-0 z-50 bg-blue-900 text-blue-100 text-xs md:text-sm">
         <div className="container mx-auto px-4 max-w-7xl flex justify-center md:justify-between items-center gap-x-6 gap-y-1 py-2 flex-wrap">
@@ -113,7 +106,7 @@ export default function Layout() {
         )}
       </header>
 
-      <main id="contenu">
+      <main>
         <Outlet />
       </main>
 
