@@ -6,6 +6,7 @@ import {
 import { CONFIG, WHATSAPP_LINK, NAV } from '../lib/config';
 import { SERVICES } from '../lib/data';
 import { Button } from './ui';
+import logo from '../assets/brand/logo.png';
 
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,9 +50,8 @@ export default function Layout() {
       {/* --- HEADER --- */}
       <header className={`fixed w-full top-9 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
         <div className="container mx-auto px-4 md:px-8 max-w-7xl flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-blue-900">
-            <Sparkles className="w-8 h-8 text-blue-600" aria-hidden="true" />
-            <span>Clean<span className="text-blue-600">Keh</span></span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt={CONFIG.brand} className="h-10 md:h-12 w-auto" />
           </Link>
 
           <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-8 font-medium text-gray-600">
@@ -116,9 +116,8 @@ export default function Layout() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
             <div>
-              <p className="flex items-center gap-2 text-2xl font-bold text-white mb-6">
-                <Sparkles className="w-8 h-8 text-blue-500" aria-hidden="true" />
-                <span>Clean<span className="text-blue-500">Keh</span></span>
+              <p className="mb-6">
+                <img src={logo} alt={CONFIG.brand} className="h-10 w-auto" />
               </p>
               <p className="text-gray-400">
                 Équipe de nettoyage professionnelle, sérieuse et dynamique à {CONFIG.city},
