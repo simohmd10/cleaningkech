@@ -179,16 +179,18 @@ export default function Home() {
             <p className="text-lg text-gray-600">Des solutions professionnelles complètes, de l'intérieur à l'extérieur.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-10">
             {SERVICES.map((service) => (
-              <Link
-                key={service.id} to="/services"
-                className="flex flex-col items-center text-center gap-3 bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <span className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
-                  <service.icon className="w-6 h-6" aria-hidden="true" />
-                </span>
-                <span className="text-sm font-semibold text-gray-900">{service.title}</span>
+              <Link key={service.id} to="/services" className="group block">
+                <h3 className="text-center font-semibold text-gray-900 mb-3">{service.title}</h3>
+                <div className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-sm border border-gray-100">
+                  <img
+                    src={service.img}
+                    alt={`${service.title} à ${CONFIG.city}`}
+                    loading="lazy" decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 motion-reduce:transform-none"
+                  />
+                </div>
               </Link>
             ))}
           </div>
