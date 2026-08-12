@@ -93,7 +93,7 @@ function useStructuredData() {
         '@type': 'LocalBusiness',
         '@id': `${CONFIG.siteUrl}/#business`,
         name: CONFIG.brand,
-        description: `Entreprise de nettoyage professionnelle à ${CONFIG.city} : résidentiel, commercial, fin de chantier, vitres, canapés, désinfection.`,
+        description: `Entreprise de nettoyage professionnelle à ${CONFIG.city}, portée par une équipe sérieuse et dynamique : résidentiel, commercial, fin de chantier, vitres, canapés, désinfection.`,
         url: CONFIG.siteUrl,
         telephone: CONFIG.phoneRaw,
         email: CONFIG.email,
@@ -461,8 +461,8 @@ export default function App() {
               </h1>
 
               <p className="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
-                Des espaces propres, sains et impeccables grâce à une équipe d'experts, réactive
-                et équipée pour tous vos besoins résidentiels et commerciaux.
+                Des espaces propres, sains et impeccables grâce à une équipe sérieuse et dynamique,
+                réactive et équipée pour tous vos besoins résidentiels et commerciaux.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10">
@@ -542,7 +542,7 @@ export default function App() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { icon: Shield, title: 'Équipe qualifiée', desc: 'Des agents expérimentés, formés et discrets pour un service soigné en toute confiance.' },
+                { icon: Shield, title: 'Équipe sérieuse et dynamique', desc: 'Des agents expérimentés, formés, discrets et motivés pour un service soigné en toute confiance.' },
                 { icon: Zap, title: 'Intervention rapide', desc: 'Une prise en charge réactive selon vos plannings, urgences et contraintes horaires.' },
                 { icon: Sparkles, title: 'Produits professionnels', desc: 'Des produits haut de gamme et des équipements adaptés à chaque type de surface.' },
                 { icon: CheckCircle2, title: 'Service sur mesure', desc: 'Des prestations personnalisées pour maisons, bureaux, villas, riads et commerces.' }
@@ -760,8 +760,9 @@ export default function App() {
             </h2>
             <div className="text-gray-600 leading-relaxed space-y-4">
               <p>
-                En tant que <strong>société de nettoyage à Marrakech</strong>, nous intervenons dans tous
-                les quartiers de la ville ocre et ses alentours. Particulier souhaitant un grand ménage
+                En tant que <strong>société de nettoyage à Marrakech</strong> portée par une équipe sérieuse
+                et dynamique, nous intervenons dans tous les quartiers de la ville ocre et ses alentours.
+                Particulier souhaitant un grand ménage
                 dans votre villa à la <strong>Palmeraie</strong> ou sur la <strong>Route de l'Ourika</strong>,
                 ou professionnel cherchant un entretien régulier de bureaux à <strong>Guéliz</strong> ou
                 <strong> Sidi Ghanem</strong> : nous avons la solution.
@@ -946,8 +947,8 @@ export default function App() {
                 <span>Clean<span className="text-blue-500">Keh</span></span>
               </p>
               <p className="text-gray-400">
-                Entreprise de nettoyage professionnelle à {CONFIG.city} pour particuliers
-                et professionnels. Qualité, rapidité et confiance.
+                Entreprise de nettoyage professionnelle à {CONFIG.city}, portée par une équipe
+                sérieuse et dynamique, pour particuliers et professionnels. Qualité, rapidité et confiance.
               </p>
             </div>
 
