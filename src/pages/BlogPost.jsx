@@ -85,7 +85,7 @@ export default function BlogPost() {
             Demandez un devis gratuit, notre équipe vous répond sous 2 h ouvrées.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button as="a" href="/#contact" variant="primary">
+            <Button as={Link} to="/contact" variant="primary">
               Demander un devis gratuit
             </Button>
             <Button as="a" href={contactMsg} target="_blank" rel="noreferrer" variant="whatsapp">

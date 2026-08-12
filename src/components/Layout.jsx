@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import {
   Phone, MessageCircle, Menu, X, MapPin, Mail, Sparkles, Clock
 } from 'lucide-react';
@@ -56,16 +56,16 @@ export default function Layout() {
       {/* --- HEADER --- */}
       <header className={`fixed w-full top-9 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
         <div className="container mx-auto px-4 md:px-8 max-w-7xl flex justify-between items-center">
-          <a href="/#accueil" className="flex items-center gap-2 text-2xl font-bold text-blue-900">
+          <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-blue-900">
             <Sparkles className="w-8 h-8 text-blue-600" aria-hidden="true" />
             <span>Clean<span className="text-blue-600">Keh</span></span>
-          </a>
+          </Link>
 
           <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-8 font-medium text-gray-600">
             {NAV.map((item) => (
-              <a key={item.href} href={item.href} className="hover:text-blue-600 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+              <Link key={item.href} to={item.href} className="hover:text-blue-600 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -74,7 +74,7 @@ export default function Layout() {
               <Phone className="w-5 h-5" aria-hidden="true" />
               {CONFIG.phoneDisplay}
             </a>
-            <Button as="a" href="/#contact" variant="primary" className="py-2 px-5 text-sm">
+            <Button as={Link} to="/contact" variant="primary" className="py-2 px-5 text-sm">
               Devis gratuit
             </Button>
           </div>
@@ -93,13 +93,13 @@ export default function Layout() {
         {isMobileMenuOpen && (
           <nav aria-label="Navigation mobile" className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col p-4 gap-2 pb-8 max-h-[calc(100vh-5rem)] overflow-y-auto">
             {NAV.map((item) => (
-              <a
-                key={item.href} href={item.href}
+              <Link
+                key={item.href} to={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg font-medium p-3 hover:bg-blue-50 rounded"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div className="flex flex-col gap-3 mt-4">
               <Button as="a" href={WHATSAPP_LINK} target="_blank" rel="noreferrer" variant="whatsapp" className="w-full">
@@ -137,7 +137,7 @@ export default function Layout() {
               <h2 className="text-lg font-bold text-white mb-6">Nos services</h2>
               <div className="grid grid-cols-2 gap-x-6 gap-y-3">
                 {SERVICES.map((s) => (
-                  <a key={s.id} href="/#services" className="hover:text-blue-400 transition-colors">{s.title}</a>
+                  <Link key={s.id} to="/services" className="hover:text-blue-400 transition-colors">{s.title}</Link>
                 ))}
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Layout() {
             <p>© {new Date().getFullYear()} {CONFIG.brand}. Tous droits réservés.</p>
             <div className="flex flex-wrap justify-center gap-4">
               {NAV.map((item) => (
-                <a key={item.href} href={item.href} className="hover:text-white">{item.label}</a>
+                <Link key={item.href} to={item.href} className="hover:text-white">{item.label}</Link>
               ))}
               <a href="/mentions-legales" className="hover:text-white">Mentions légales</a>
               <a href="/confidentialite" className="hover:text-white">Politique de confidentialité</a>
@@ -202,10 +202,10 @@ export default function Layout() {
           <MessageCircle className="w-6 h-6 mb-1" aria-hidden="true" />
           <span className="text-[10px] font-bold uppercase">WhatsApp</span>
         </a>
-        <a href="/#contact" className="flex-1 flex flex-col items-center justify-center py-3 bg-blue-600 text-white hover:bg-blue-700">
+        <Link to="/contact" className="flex-1 flex flex-col items-center justify-center py-3 bg-blue-600 text-white hover:bg-blue-700">
           <Sparkles className="w-6 h-6 mb-1" aria-hidden="true" />
           <span className="text-[10px] font-bold uppercase">Devis</span>
-        </a>
+        </Link>
       </nav>
     </div>
   );

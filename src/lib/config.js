@@ -26,13 +26,11 @@ export const WHATSAPP_LINK = waLink(
 );
 
 export const NAV = [
-  { href: '/#accueil', label: 'Accueil' },
-  { href: '/#services', label: 'Services' },
-  { href: '/#packs', label: 'Packs' },
-  { href: '/#pourquoi-nous', label: 'Pourquoi nous' },
-  { href: '/#temoignages', label: 'Avis' },
+  { href: '/', label: 'Accueil' },
+  { href: '/services', label: 'Services' },
+  { href: '/packs', label: 'Packs' },
+  { href: '/pourquoi-nous', label: 'Pourquoi nous' },
+  { href: '/avis', label: 'Avis' },
   { href: '/blog', label: 'Blog' },
-  { href: '/#contact', label: 'Contact' }
+  { href: '/contact', label: 'Contact' }
 ];
-
-export const SECTION_ANCHOR = 'scroll-mt-32 lg:scroll-mt-36';
