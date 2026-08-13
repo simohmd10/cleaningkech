@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  MessageCircle, CheckCircle2, MapPin,
+  MessageCircle, MapPin,
   ChevronDown, ChevronUp, Star, ArrowRight, Quote
 } from 'lucide-react';
 import { CONFIG, WHATSAPP_LINK } from '../lib/config';
@@ -113,26 +113,6 @@ export default function Home() {
               </Button>
             </div>
 
-            <ul className="grid grid-cols-2 gap-4 text-sm font-medium text-white">
-              {['Intervention rapide', 'Équipe qualifiée', 'Matériel professionnel', 'Satisfaction 100%'].map((t) => (
-                <li key={t} className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-white shrink-0">
-                    <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
-                  </span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-
-            <div className="inline-flex items-center gap-3 mt-8 bg-white/10 border border-white/20 backdrop-blur-sm px-4 py-3 rounded-xl">
-              <span className="bg-white/15 p-2 rounded-full text-yellow-300">
-                <Star className="w-5 h-5 fill-current" aria-hidden="true" />
-              </span>
-              <span className="text-white">
-                <span className="font-bold">{CONFIG.ratingValue}/5</span>
-                <span className="text-blue-100"> · Basé sur +{CONFIG.reviewCount} avis</span>
-              </span>
-            </div>
           </div>
         </div>
       </section>
