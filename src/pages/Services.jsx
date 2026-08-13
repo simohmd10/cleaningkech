@@ -36,10 +36,6 @@ export default function Services() {
                     width="600" height="400" loading="lazy" decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 motion-reduce:transform-none"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" aria-hidden="true" />
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur p-2 rounded-lg text-blue-600">
-                    <service.icon className="w-6 h-6" aria-hidden="true" />
-                  </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h2 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h2>
