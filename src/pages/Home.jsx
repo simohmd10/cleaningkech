@@ -122,9 +122,9 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
             {[
-              ['250+', 'Clients satisfaits'],
-              ['500+', 'Prestations réalisées'],
-              ['10+', "Ans d'expérience"],
+              ['5000+', 'Clients satisfaits'],
+              ['7/24', 'Disponibilité'],
+              ['18+', "Ans d'expérience"],
               ['100%', 'Engagement qualité']
             ].map(([num, label]) => (
               <div key={label}>
