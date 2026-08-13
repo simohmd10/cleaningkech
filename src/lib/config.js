@@ -12,7 +12,7 @@ export const CONFIG = {
   lat: 31.6295,
   lng: -7.9811,
   siteUrl: 'https://cleankeh.ma',
-  hours: 'Lun-Sam : 08h00 - 19h00',
+  hours: '24h/24 - 7j/7',
   reviewCount: 250,
   ratingValue: 4.9
 };

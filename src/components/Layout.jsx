@@ -34,7 +34,7 @@ export default function Layout() {
         <div className="container mx-auto px-4 max-w-7xl flex justify-center md:justify-between items-center gap-x-6 gap-y-1 py-2 flex-wrap">
           <span className="hidden sm:inline-flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
-            {CONFIG.city}, Maroc
+            {CONFIG.address}
           </span>
           <a href={`tel:${CONFIG.phoneRaw}`} className="inline-flex items-center gap-1.5 hover:text-white">
             <Phone className="w-3.5 h-3.5" aria-hidden="true" />
