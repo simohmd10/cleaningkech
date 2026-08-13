@@ -124,7 +124,7 @@ export default function Home() {
             {[
               ['5000+', 'Clients satisfaits'],
               ['7/24', 'Disponibilité'],
-              ['18+', "Ans d'expérience"],
+              ['16+', "Ans d'expérience"],
               ['100%', 'Engagement qualité']
             ].map(([num, label]) => (
               <div key={label}>
