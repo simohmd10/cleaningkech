@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import {
-  Phone, MessageCircle, Menu, X, MapPin, Sparkles, Clock
+  Phone, MessageCircle, Menu, X, MapPin, Stamp, Clock
 } from 'lucide-react';
 import { CONFIG, WHATSAPP_LINK, NAV } from '../lib/config';
 import { SERVICES } from '../lib/data';
@@ -191,7 +191,7 @@ export default function Layout() {
           <span className="text-[10px] font-bold uppercase">WhatsApp</span>
         </a>
         <Link to="/contact" className="flex-1 flex flex-col items-center justify-center py-3 bg-blue-600 text-white hover:bg-blue-700">
-          <Sparkles className="w-6 h-6 mb-1" aria-hidden="true" />
+          <Stamp className="w-6 h-6 mb-1" aria-hidden="true" />
           <span className="text-[10px] font-bold uppercase">Devis</span>
         </Link>
       </nav>
