@@ -3,10 +3,9 @@
 ------------------------------------------------------------------ */
 export const CONFIG = {
   brand: 'CleanKeh',
-  phoneDisplay: '+212 600 00 00 00',
-  phoneRaw: '+212600000000',        // utilisé pour tel:
-  whatsappNumber: '212600000000',   // format international sans +
-  email: 'contact@cleankeh.ma',
+  phoneDisplay: '+212 691 55 31 20',
+  phoneRaw: '+212691553120',         // utilisé pour tel:
+  whatsappNumber: '212691553120',    // format international sans +
   city: 'Marrakech',
   address: 'Guéliz, Marrakech, Maroc',
   postalCode: '40000',

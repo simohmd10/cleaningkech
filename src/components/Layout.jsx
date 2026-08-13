@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import {
-  Phone, MessageCircle, Menu, X, MapPin, Mail, Sparkles, Clock
+  Phone, MessageCircle, Menu, X, MapPin, Sparkles, Clock
 } from 'lucide-react';
 import { CONFIG, WHATSAPP_LINK, NAV } from '../lib/config';
 import { SERVICES } from '../lib/data';
@@ -144,10 +144,6 @@ export default function Layout() {
                 <li className="flex items-start gap-3">
                   <MessageCircle className="w-5 h-5 text-green-500 shrink-0" aria-hidden="true" />
                   <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp</a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-blue-500 shrink-0" aria-hidden="true" />
-                  <a href={`mailto:${CONFIG.email}`} className="hover:text-white break-all">{CONFIG.email}</a>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-blue-500 shrink-0" aria-hidden="true" />

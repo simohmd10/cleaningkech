@@ -27,7 +27,6 @@ export default function Home() {
       description: `Équipe de nettoyage professionnelle, sérieuse et dynamique à ${CONFIG.city} : résidentiel, commercial, vitres, canapés & tapis, traitement des sols, piscine.`,
       url: CONFIG.siteUrl,
       telephone: CONFIG.phoneRaw,
-      email: CONFIG.email,
       priceRange: '$$',
       image: `${CONFIG.siteUrl}/og-image.jpg`,
       address: {

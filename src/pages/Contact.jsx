@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageCircle, Mail, MapPin } from 'lucide-react';
+import { Phone, MessageCircle, MapPin } from 'lucide-react';
 import { CONFIG, WHATSAPP_LINK } from '../lib/config';
 import { usePageMeta } from '../lib/seo';
 import { QuoteForm } from '../components/ui';
@@ -36,13 +36,6 @@ export default function Contact() {
                   <h2 className="font-semibold text-lg">WhatsApp</h2>
                   <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="text-blue-100 hover:text-white">{CONFIG.phoneDisplay}</a>
                   <p className="text-sm text-blue-300">Réponse rapide garantie</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <Mail className="w-6 h-6 text-blue-400 mt-1 shrink-0" aria-hidden="true" />
-                <div>
-                  <h2 className="font-semibold text-lg">Email</h2>
-                  <a href={`mailto:${CONFIG.email}`} className="text-blue-100 hover:text-white break-all">{CONFIG.email}</a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
