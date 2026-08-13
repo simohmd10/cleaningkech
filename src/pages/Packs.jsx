@@ -36,7 +36,7 @@ export default function Packs() {
   );
 
   return (
-    <section className="pt-40 lg:pt-48 pb-20 bg-blue-50">
+    <section className="pt-16 lg:pt-20 pb-20 bg-blue-50">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-blue-950 mb-6">Nos packs de nettoyage sur mesure</h1>

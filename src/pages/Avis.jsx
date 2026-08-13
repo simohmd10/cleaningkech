@@ -13,7 +13,7 @@ export default function Avis() {
   );
 
   return (
-    <section className="pt-40 lg:pt-48 pb-20 bg-blue-50">
+    <section className="pt-16 lg:pt-20 pb-20 bg-blue-50">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-blue-950 mb-4">Ce que disent nos clients</h1>

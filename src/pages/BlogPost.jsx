@@ -51,7 +51,7 @@ export default function BlogPost() {
   const contactMsg = waLink(`Bonjour, j'ai lu votre article "${post.title}" et je souhaite obtenir un devis.`);
 
   return (
-    <article className="pt-40 lg:pt-48 pb-20 bg-white">
+    <article className="pt-16 lg:pt-20 pb-20 bg-white">
       <div className="container mx-auto px-4 md:px-8 max-w-3xl">
         <Link to="/blog" className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 mb-8">
           <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />

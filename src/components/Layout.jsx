@@ -29,82 +29,84 @@ export default function Layout() {
   return (
     <div className="font-sans text-gray-800 bg-white selection:bg-blue-100 selection:text-blue-900">
 
-      {/* --- BARRE D'INFOS --- */}
-      <div className="fixed w-full top-0 z-50 bg-blue-900 text-blue-100 text-xs md:text-sm">
-        <div className="container mx-auto px-4 max-w-7xl flex justify-center md:justify-between items-center gap-x-6 gap-y-1 py-2 flex-wrap">
-          <span className="hidden sm:inline-flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
-            {CONFIG.address}
-          </span>
-          <a href={`tel:${CONFIG.phoneRaw}`} className="inline-flex items-center gap-1.5 hover:text-white">
-            <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-            {CONFIG.phoneDisplay}
-          </a>
-          <span className="hidden sm:inline-flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" aria-hidden="true" />
-            {CONFIG.hours}
-          </span>
-        </div>
-      </div>
-
-      {/* --- HEADER --- */}
-      <header className={`fixed w-full top-9 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl flex justify-between items-center">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt={CONFIG.brand} className="h-10 md:h-12 w-auto" />
-          </Link>
-
-          <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-8 font-medium text-gray-600">
-            {NAV.map((item) => (
-              <Link key={item.href} to={item.href} className="hover:text-blue-600 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden lg:flex items-center gap-4">
-            <a href={`tel:${CONFIG.phoneRaw}`} className="flex items-center gap-2 text-blue-900 font-semibold hover:text-blue-700">
-              <Phone className="w-5 h-5" aria-hidden="true" />
+      <div className="sticky top-0 z-50">
+        {/* --- BARRE D'INFOS --- */}
+        <div className="bg-blue-900 text-blue-100 text-xs md:text-sm">
+          <div className="container mx-auto px-4 max-w-7xl flex justify-center md:justify-between items-center gap-x-6 gap-y-1 py-2 flex-wrap">
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
+              {CONFIG.address}
+            </span>
+            <a href={`tel:${CONFIG.phoneRaw}`} className="inline-flex items-center gap-1.5 hover:text-white">
+              <Phone className="w-3.5 h-3.5" aria-hidden="true" />
               {CONFIG.phoneDisplay}
             </a>
-            <Button as={Link} to="/contact" variant="primary" className="py-2 px-5 text-sm">
-              Devis gratuit
-            </Button>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5" aria-hidden="true" />
+              {CONFIG.hours}
+            </span>
           </div>
-
-          <button
-            type="button"
-            className="lg:hidden text-gray-800 p-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-            onClick={() => setIsMobileMenuOpen((v) => !v)}
-            aria-expanded={isMobileMenuOpen}
-            aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-          >
-            {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-          </button>
         </div>
 
-        {isMobileMenuOpen && (
-          <nav aria-label="Navigation mobile" className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col p-4 gap-2 pb-8 max-h-[calc(100vh-5rem)] overflow-y-auto">
-            {NAV.map((item) => (
-              <Link
-                key={item.href} to={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium p-3 hover:bg-blue-50 rounded"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="flex flex-col gap-3 mt-4">
-              <Button as="a" href={WHATSAPP_LINK} target="_blank" rel="noreferrer" variant="whatsapp" className="w-full">
-                <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp
-              </Button>
-              <Button as="a" href={`tel:${CONFIG.phoneRaw}`} variant="outline" className="w-full">
-                Appeler maintenant
+        {/* --- HEADER --- */}
+        <header className={`relative transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl flex justify-between items-center">
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt={CONFIG.brand} className="h-10 md:h-12 w-auto" />
+            </Link>
+
+            <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-8 font-medium text-gray-600">
+              {NAV.map((item) => (
+                <Link key={item.href} to={item.href} className="hover:text-blue-600 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="hidden lg:flex items-center gap-4">
+              <a href={`tel:${CONFIG.phoneRaw}`} className="flex items-center gap-2 text-blue-900 font-semibold hover:text-blue-700">
+                <Phone className="w-5 h-5" aria-hidden="true" />
+                {CONFIG.phoneDisplay}
+              </a>
+              <Button as={Link} to="/contact" variant="primary" className="py-2 px-5 text-sm">
+                Devis gratuit
               </Button>
             </div>
-          </nav>
-        )}
-      </header>
+
+            <button
+              type="button"
+              className="lg:hidden text-gray-800 p-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+              onClick={() => setIsMobileMenuOpen((v) => !v)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            >
+              {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+            </button>
+          </div>
+
+          {isMobileMenuOpen && (
+            <nav aria-label="Navigation mobile" className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col p-4 gap-2 pb-8 max-h-[calc(100vh-5rem)] overflow-y-auto">
+              {NAV.map((item) => (
+                <Link
+                  key={item.href} to={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-lg font-medium p-3 hover:bg-blue-50 rounded"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="flex flex-col gap-3 mt-4">
+                <Button as="a" href={WHATSAPP_LINK} target="_blank" rel="noreferrer" variant="whatsapp" className="w-full">
+                  <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp
+                </Button>
+                <Button as="a" href={`tel:${CONFIG.phoneRaw}`} variant="outline" className="w-full">
+                  Appeler maintenant
+                </Button>
+              </div>
+            </nav>
+          )}
+        </header>
+      </div>
 
       <main>
         <Outlet />

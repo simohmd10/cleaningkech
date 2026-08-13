@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <>
       {/* --- HERO --- */}
-      <section className="relative pt-40 lg:pt-48 pb-20 lg:pb-28 overflow-hidden">
+      <section className="relative pt-16 lg:pt-24 pb-20 lg:pb-28 overflow-hidden">
         <img
           src={villaImg}
           alt={`Équipe de nettoyage professionnelle en intervention dans une villa à ${CONFIG.city}`}
