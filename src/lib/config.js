@@ -7,7 +7,7 @@ export const CONFIG = {
   phoneRaw: '+212760593126',         // utilisé pour tel:
   whatsappNumber: '212760593126',    // format international sans +
   city: 'Marrakech',
-  address: 'Guéliz, Marrakech, Maroc',
+  address: 'Route de Fès, Marrakech, Maroc',
   postalCode: '40000',
   lat: 31.6295,
   lng: -7.9811,

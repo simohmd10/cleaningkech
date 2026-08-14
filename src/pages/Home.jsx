@@ -31,7 +31,7 @@ export default function Home() {
       image: `${CONFIG.siteUrl}/og-image.jpg`,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Guéliz',
+        streetAddress: 'Route de Fès',
         addressLocality: CONFIG.city,
         postalCode: CONFIG.postalCode,
         addressCountry: 'MA'
